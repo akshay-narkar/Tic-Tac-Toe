@@ -49,6 +49,7 @@ def game_input
   puts "|#{array[6]}|#{array[7]}|#{array[8]}|"
 end
 
+
 # def input(input,player)
 
 #  if player=="player1"
