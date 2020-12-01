@@ -1,62 +1,76 @@
-## Tic Tac Toe Game in Ruby
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-Creating the Tic Tac Toe Game in ruby using Object Oriented Methodology
+# Project Name
+
+> One paragraph statement about the project.
+
+![screenshot](./app_screenshot.png)
+
+Additional description about the project and its features.
 
 ## Built With
 
-- Ruby
-- VsCode
+- Major languages
+- Frameworks
+- Technologies used
+
+## Live Demo
+
+[Live Demo Link](https://livedemo.com)
+
 
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps:
-Prerequisites
+**This is an example of how you may give instructions on setting up your project locally.**
+**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
 
-    Text Editor (VSCode is suggested.)
-    Ruby
 
-## Setup
+To get a local copy up and running follow these simple example steps.
 
-To play the game locally,
+### Prerequisites
 
-1. Install Ruby using the necessary commands depending on your Operating System
-2. Download the files on your system
-3. Navigate to project Directory
-4. Run the game in terminal using ruby bin/main.rb
+### Setup
 
-<!-- ## Assignment Link
+### Install
 
-[Assignment]  -->
+### Usage
 
-## Authors:
+### Run tests
 
-👤 **Akshay Narkar**
+### Deployment
 
-- Github: [@akshay-narkar](https://github.com/akshay-narkar)
-- Twitter: [@akidoit](https://twitter.com/akidoit)
 
-👤 **Andrik Solis**
 
-- GitHub: [Andrik27001](https://github.com/Andrik27001)
-- Twitter: [@Andrik22693566](https://twitter.com/Andrik22693566)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/andrik-solis-paniagua-a0ab251b5/)
+## Authors
+
+👤 **Author1**
+
+- GitHub: [@githubhandle](https://github.com/githubhandle)
+- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
+- LinkedIn: [LinkedIn](https://linkedin.com/linkedinhandle)
+
+👤 **Author2**
+
+- GitHub: [@githubhandle](https://github.com/githubhandle)
+- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
+- LinkedIn: [LinkedIn](https://linkedin.com/linkedinhandle)
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome! Start by:
+Contributions, issues, and feature requests are welcome!
 
-- Forking the project
-- Cloning the project to your local machine
-- `cd` into the project directory
-- Run `git checkout -b your-branch-name`
-- Make your contributions
-- Push your branch up to your forked repository
-- Open a Pull Request with a detailed description to the development branch of the original project for a review
+Feel free to check the [issues page](issues/).
 
 ## Show your support
 
-Give a :star: if you like this project!
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
 
 ## 📝 License
 
-This project is [MIT](https://opensource.org/licenses/MIT) licensed.
+This project is [MIT](lic.url) licensed.
