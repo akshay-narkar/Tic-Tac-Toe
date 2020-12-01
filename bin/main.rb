@@ -1,6 +1,11 @@
 #!/usr/bin/env ruby
 # Game flow
+
+
 puts 'Lets Play Tic Tac Toe!'
+
+# Get player names
+
 puts 'Enter Player 1 Name'
 player1 = gets.chomp
 player1 = 'Player 1' if player1 == ''
@@ -13,6 +18,14 @@ player2 = 'Player 2' if player2 == ''
 puts "Player 2 is #{player2}"
 puts
 
+# Initialize array and result
+
+result = [false,""]
+array = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+
+#define game rules
+
 def game_rules
   puts
   puts 'Rules are Follows'
@@ -22,62 +35,95 @@ def game_rules
   puts
 end
 
-def player_turn
-  puts 'Your Turn player 1'
-  move = gets.chomp
-  puts "Your move is #{move}"
-  puts 'Invalid Input. Please Input from number 1 to 9'
+#player 1 turn
 
-  puts 'Your turn player 2'
+def player_turn1
+  puts 'Your Turn player 1'
+  puts "The Current Board looks like this"
+  puts "|#{array[0]}|#{array[1]}|#{array[2]}|"
+  puts "|#{array[3]}|#{array[4]}|#{array[5]}|"
+  puts "|#{array[6]}|#{array[7]}|#{array[8]}|"
+  puts "Valid Moves are as follows:"
+  
+  # Share valid positions here
+  
+  move = nil
+  puts "Enter your position Player 1"
   move = gets.chomp
-  puts "Your move is #{move}"
-  puts 'Invalid Input. Please Input from number 1 to 9'
+
+  # if move is invalid, inform which moves are valid and takes input again in a loop
+  #  puts 'Invalid Input. Please Input from number 1 to 9' if move conditions
+
+  puts "You have marked position #{move}"
+
+  # call function to check if a winning pattern is made or if it is a draw
+  puts "The Current Board looks like this"
+  puts "|#{array[0]}|#{array[1]}|#{array[2]}|"
+  puts "|#{array[3]}|#{array[4]}|#{array[5]}|"
+  puts "|#{array[6]}|#{array[7]}|#{array[8]}|"
+
+  # if a draw or victory is sealed, share that player has won and share board and return to calling function
+
+end 
+
+#player 2 turn
+
+def player_turn2
+  puts 'Your turn player 2'
+  puts "The Current Board looks like this"
+  puts "|#{array[0]}|#{array[1]}|#{array[2]}|"
+  puts "|#{array[3]}|#{array[4]}|#{array[5]}|"
+  puts "|#{array[6]}|#{array[7]}|#{array[8]}|"
+  puts "Valid Moves are as follows:"
+
+  # Share valid positions
+  move = nil
+  puts "Enter your position Player 2"
+  move = gets.chomp
+
+  # if move is invalid, inform which moves are valid and takes input again 
+  # puts 'Invalid Input. Please Input from number 1 to 9' if move conditions
+
+  puts "You have marked position #{move}"
+
+  # call function to check if a winning pattern is made or if it is a draw
+
+  puts "The Current Board looks like this"
+  puts "|#{array[0]}|#{array[1]}|#{array[2]}|"
+  puts "|#{array[3]}|#{array[4]}|#{array[5]}|"
+  puts "|#{array[6]}|#{array[7]}|#{array[8]}|"
+
+  # if a draw or victory is sealed, share that player has won and share board and return to calling function
+
 end
 
-def game_result
-  puts 'Winner is Player 1'
+# to display game result
+
+def game_result(player_name)
+  puts 'Winner is player_name'
   puts 'The Game is a Draw'
   puts 'Would you like to play again? Press Y to continue'
+  play_again = gets.chomp
 end
+
+#initial input
 
 def game_input
   # array = [[0,1,1],[1,1,1],[1,1,1]]
-  array = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-
+  puts "Lets Begin the Game"
   puts "|#{array[0]}|#{array[1]}|#{array[2]}|"
   puts "|#{array[3]}|#{array[4]}|#{array[5]}|"
   puts "|#{array[6]}|#{array[7]}|#{array[8]}|"
 end
 
-# def input(input,player)
+game_rules # call game rules 
+game_input # call game input
 
-#  if player=="player1"
-#     array[input] =  "X"
-#  else
-#     array[input] =  "0"
-#  end
 
-# puts "|#{array[0]}|#{array[1]}|#{array[2]}|"
-# puts "|#{array[3]}|#{array[4]}|#{array[5]}|"
-# play
-# end
-# puts
+# keep checking for game result before executing
 
-# def play
+until result[0] == false 
+  result[0] = player_turn1 if result[0] == false
+  result[0] = player_turn2 if result[0] == false
 
-# move = nil
-# while move.isnil? || move < 1 && move>9
-# puts "Enter your position Player 1"
-# move = gets.chomp
-# end
-# puts "You have marked position #{move}"
-# input(move-1,"player1")
 
-# move = nil
-# while move.isnil? || move < 1 && move>9
-# puts "Enter your position Player 2"
-# move = gets.chomp
-# end
-# puts "You have marked position #{move}"
-# input(move-1,"player2")
-# end
