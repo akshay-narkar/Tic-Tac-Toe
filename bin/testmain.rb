@@ -41,10 +41,10 @@ def check_move
     check = move_made.move_new(move)
     if check == false
       puts 'Invalid Move, enter correct position'
-      move = gets.chomp
+      move = gets.chomp.strip
     end
   end
-  write add to array here
+  
 end
 
 # player 1 turn
@@ -91,6 +91,7 @@ def game_over
   # play_again = gets.chomp
   # exit 1 unless %w[Y y].include?(play_again)
 end
+
 puts
 puts 'Lets Play Tic Tac Toe!'
 puts

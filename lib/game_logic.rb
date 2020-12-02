@@ -1,4 +1,4 @@
-require_relative './bin/testmain'
+require_relative '../bin/testmain'
 
 class Checkresult
   attr_reader :result
@@ -37,14 +37,11 @@ class Valid
 end
 
 class Move
-  attr_accessor :move_made?
-
   def move_new(move)
     if move.ord > 48 && move.ord < 58
-        if move.to_a
+      return true if valid_array.validarray[move - 1] == 'A'
     else
       false
     end
-    @validarray
   end
 end

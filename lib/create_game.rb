@@ -15,11 +15,11 @@ class Newboard
     @array = %w[- - - - - - - - -]
   end
 
- def input_marker(_input = nil, _player = nil)
-   @array[input.to_i - 1] = 'X' if player == 1
-   @array[input.to_i - 1] = 'O' if player == 2
+  def input_marker(_input = nil, _player = nil)
+    @array[input.to_i - 1] = 'X' if player == 1
+    @array[input.to_i - 1] = 'O' if player == 2
+  end
 end
-
 
 
 
