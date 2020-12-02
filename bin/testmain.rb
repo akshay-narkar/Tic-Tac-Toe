@@ -34,14 +34,14 @@ def valid_moves
   puts
 end
 
-def move
+def check_move
   move = gets.chomp.strip
   check = false
   until check == true
-    check=move_made.move_new(move)
-    if check==false
-    puts 'Invalid Move, enter correct position'
-    move = gets.chomp
+    check = move_made.move_new(move)
+    if check == false
+      puts 'Invalid Move, enter correct position'
+      move = gets.chomp
     end
   end
   write add to array here
@@ -59,8 +59,8 @@ def player_one
   puts
   valid_moves
   puts
-  check_move
   puts 'Enter your position Player 1'
+  check_move
   puts
   move
   new_board(move, 1)
