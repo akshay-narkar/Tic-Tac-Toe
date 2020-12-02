@@ -1,6 +1,9 @@
 #!/usr/bin/env ruby
 # Game flow
 
+require_relative './lib/game_logic'
+require_relative './lib/create_game'
+
 def new_board(input = nil, player = nil)
   array = %w[- - - - - - - - -]
   array[input.to_i - 1] = 'X' if player == 1
