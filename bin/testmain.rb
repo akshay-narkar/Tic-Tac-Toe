@@ -1,16 +1,13 @@
 #!/usr/bin/env ruby
 # Game flow
 
-require_relative './lib/game_logic'
-require_relative './lib/create_game'
+require_relative '../lib/game_logic'
+require_relative '../lib/create_game'
 
-def new_board(input = nil, player = nil)
-  array = %w[- - - - - - - - -]
-  array[input.to_i - 1] = 'X' if player == 1
-  array[input.to_i - 1] = 'O' if player == 2
-  puts "|#{array[0]}|#{array[1]}|#{array[2]}|"
-  puts "|#{array[3]}|#{array[4]}|#{array[5]}|"
-  puts "|#{array[6]}|#{array[7]}|#{array[8]}|"
+def new_board
+  puts "|#{new_board.array[0]}|#{new_board.array[1]}|#{new_board.array[2]}|"
+  puts "|#{new_board.array[3]}|#{new_board.array[4]}|#{new_board.array[5]}|"
+  puts "|#{new_board.array[6]}|#{new_board.array[7]}|#{new_board.array[8]}|"
   puts
   # result = check_result(array)
   # game_over if result == true
@@ -22,12 +19,32 @@ def game_rules
   puts 'Rules are Follows'
   puts "1. Game ends when either 3 X's or 3 0's are made one one after the other Horizontally, vertically
 or diagonally"
-
   puts '2. Game ends in a draw when all squares are filled or and no winning sequence is reached.'
   puts '3. Player 1 is X & player 2 is 0'
   puts
   puts 'Lets Begin the Game'
   puts
+end
+
+def valid_moves
+  puts 'Valid Moves are as follows:'
+  puts
+  x = valid_array.valid_moves
+  x.each_with_index { |item, index| print "#{index + 1} " if item == 'A' }
+  puts
+end
+
+def move
+  move = gets.chomp.strip
+  check = false
+  until check == true
+    check=move_made.move_new(move)
+    if check==false
+    puts 'Invalid Move, enter correct position'
+    move = gets.chomp
+    end
+  end
+  write add to array here
 end
 
 # player 1 turn
@@ -41,13 +58,14 @@ def player_one
   new_board
   puts
   valid_moves
+  puts
+  check_move
   puts 'Enter your position Player 1'
   puts
-  move = gets.chomp
-  check_move(move)
+  move
   new_board(move, 1)
-  result = check_result
-  game_over if result == true
+  #   result = check_result
+  #   game_over if result == true
 end
 
 def player_two
@@ -57,44 +75,14 @@ def player_two
   puts 'The Current Board looks like this'
   puts
   new_board
+  puts
   valid_moves
   puts 'Enter your position Player 2'
   move = gets.chomp
   move = check_move(move)
   new_board(move, 2)
-  result = check_result
-  game_over if result == true
-end
-
-def check_move(move)
-  until move.ord > 48 && move.ord < 58
-    puts 'Invalid Move, enter correct position'
-    move = gets.chomp
-  end
-  puts "You have marked #{move}"
-  puts
-  move
-end
-
-def check_result
-  x = rand(3)
-  puts
-  if x.zero?
-    puts 'Winner is Player 1'
-  elsif x.odd?
-    puts 'Winner is Player 2'
-  else
-    puts 'Its a draw'
-  end
-  # result = true
-  puts
-end
-
-def valid_moves
-  puts 'Valid Moves are as follows:'
-  (1..9).each { |x| print "#{x} " }
-  puts
-  puts
+  #   result = check_result
+  #   game_over if result == true
 end
 
 def game_over
@@ -113,24 +101,30 @@ puts
 player1 = gets.chomp.strip
 player1 = 'Player 1' if player1 == ''
 puts
-puts "Player 1 is #{player1}"
+new_player1 = Player.new(player1)
+puts "Player 1 is #{new_player1.name}"
 puts
 puts 'Enter Player 2 Name'
 puts
 player2 = gets.chomp.strip
 puts
 player2 = 'Player 2' if player2 == ''
-
-puts "Player 2 is #{player2}"
+puts
+new_player2 = Player.new(player2)
+puts "Player 2 is #{new_player2.name}"
 puts
 
 # Initialize array and result
 puts 'Welcome to the Game'
 # result = false
 game_rules
-new_board
+new_board = Newboard.new
+valid_array = Valid.new
+move_made = Move.new
 
-(1...2).each do
+result = Checkresult.new(false)
+
+while result.result == false
   player_one
   player_two
 end
@@ -220,11 +214,3 @@ end
 #   result[0] = player_turn1 if result[0] == false
 #   result[0] = player_turn2 if result[0] == false
 # end
-
-#  [REQUIRED] game tells which player turn it is (without computing who the winner is)
-#  [REQUIRED] game asks the player to select from available moves
-#  [REQUIRED] game informs player if the selected move is invalid (without computing what an invalid move is)
-#  [REQUIRED] game displays board after the player move (without computing which spots on the board are taken)
-#  [REQUIRED] game informs player if the selected move is a winning move (without computing the winning move)
-#  [REQUIRED] game informs player if the selected move is a draw move (without computing draw)
-#  [REQUIRED] game repeats all actions for the next player's move
