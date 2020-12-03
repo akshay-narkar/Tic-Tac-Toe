@@ -1,5 +1,3 @@
-# rubocop: disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
-
 class Checkresult
   attr_reader :result1
 
@@ -58,8 +56,6 @@ class Checkresult
     end
     check_draw(new_board) if @result1 == false
   end
-
-  # rubocop: enable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
 
   def check_draw(new_board)
     @result1 = 'draw' if new_board.array.none?('-')
