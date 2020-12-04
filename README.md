@@ -17,7 +17,7 @@ This Microverse project consists of recreating the famous game "Tic Tac Toe" usi
 
   **Prerequisites:**
 
-- Text Editor (VSCode is suggested.)
+- Text Editor (VSCode is suggested)
 - Ruby.
 
 
