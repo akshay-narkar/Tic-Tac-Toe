@@ -18,7 +18,12 @@ def valid_moves(valid_array, new_board)
   x = valid_array.valid_moves_logic(new_board)
   x.each_with_index { |item, index| print "#{index + 1} " if item == 'A' }
   puts
-  puts 'Enter any of the above number to mark your position'
+  puts 'Enter any of the above number to mark your position.'
+  puts 'Numbers & positions are insync as below'
+  puts '|1|2|3|'
+  puts '|4|5|6|'
+  puts '|7|8|9|'
+  puts
 end
 
 def check_move(move_made, valid_array, new_board)
@@ -111,17 +116,18 @@ while %w[Y y].include?(play_again)
   puts 'Enter Player 2 Name:'
   player2 = gets.chomp.strip
   player2 = 'Player 2' if player2 == ''
+  player2 = "#{player2}-(player2)" if player2 == player1
   new_player2 = Player.new(player2)
   puts
   puts "Player 2 is \"#{new_player2.name}\""
 
   # Initialize array and result
   start_game
-  new_board = Newboard.new
+  new_board = NewBoard.new
   valid_array = Valid.new
   move_made = Move.new
 
-  result = Checkresult.new(false)
+  result = CheckResult.new(false)
 
   while result.result1 == false
     player_one(valid_array, move_made, new_board, new_player1, result)
