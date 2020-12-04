@@ -29,10 +29,10 @@ To play the game locally follow these simple steps:
 
 ## What is Tic Tac Toe?
 
-##### 1. Tic Tae is a 2 player game where the goal is to mark your signs/symbols X or 0 in consecutively.
-##### 2. It is usually played on a 3x3 board but can be played on bigger boards. So a 3x3 board the goal is to complete 3 signs consecutively.
-##### 3. It can either be horizontally, vertically or diagonally.
-##### 4. Every player plays alternatively. If no consecutive pattern is made, it is a draw!
+1. Tic Tae is a 2 player game where the goal is to mark your signs/symbols X or 0 in consecutively.
+2. It is usually played on a 3x3 board but can be played on bigger boards. So a 3x3 board the goal is to complete 3 signs consecutively.
+3. It can either be horizontally, vertically or diagonally.
+4. Every player plays alternatively. If no consecutive pattern is made, it is a draw!
 
 ## Tic Tac Toe Game Rules
 
@@ -45,6 +45,7 @@ To play the game locally follow these simple steps:
 ## Game Instructions
 
 ##### 1. After running the code, introduce player one name and press enter
+
 ##### 2. Then you need to repeat the process with player two
 
 ![screenshot](./screenshots/playernames.png)
@@ -66,11 +67,9 @@ To play the game locally follow these simple steps:
 
 ![screenshot](./screenshots/playagain.png)
 
-
 ## Live Demo
 
 ![screenshot](https://repl.it/@Andrik27001/Tic-Tac-Toe#main.rb)
-
 
 ## Authors:
 
