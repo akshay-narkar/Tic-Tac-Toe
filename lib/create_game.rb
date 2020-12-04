@@ -6,7 +6,7 @@ class Player
   end
 end
 
-class Newboard
+class NewBoard
   attr_accessor :array
 
   def initialize

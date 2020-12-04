@@ -1,4 +1,4 @@
-class Checkresult
+class CheckResult
   attr_reader :result1
 
   def initialize(result)
@@ -48,7 +48,7 @@ class Checkresult
     i = 0
     while i < 1
       if new_board.array[i + 2] != '-' && new_board.array[i + 2] == new_board.array[i + 4] && \
-         new_board.array[i + 4] == new_board.array[i + 6] && new_board.array[i + 6] == new_board.array[i]
+         new_board.array[i + 4] == new_board.array[i + 6] && new_board.array[i + 6] == new_board.array[i + 2]
         @result1 = true
         return player
       end
@@ -64,29 +64,29 @@ class Checkresult
 end
 
 class Valid
-  attr_reader :validarray
+  attr_reader :valid_move
 
   def initialize
-    @validarray = []
+    @valid_move = []
   end
 
   def valid_moves_logic(new_board)
     new_board.array.each_with_index do |x, y|
-      @validarray[y] = if x == '-'
+      @valid_move[y] = if x == '-'
                          'A'
                        else
                          '-'
                        end
     end
 
-    @validarray
+    @valid_move
   end
 end
 
 class Move
   def move_new(move, valid_array)
     if move.to_i >= 1 && move.to_i < 10
-      valid_array.validarray[move.to_i - 1] == 'A'
+      valid_array.valid_move[move.to_i - 1] == 'A'
     else
       false
     end

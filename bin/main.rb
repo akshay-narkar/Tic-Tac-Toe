@@ -117,11 +117,11 @@ while %w[Y y].include?(play_again)
 
   # Initialize array and result
   start_game
-  new_board = Newboard.new
+  new_board = NewBoard.new
   valid_array = Valid.new
   move_made = Move.new
 
-  result = Checkresult.new(false)
+  result = CheckResult.new(false)
 
   while result.result1 == false
     player_one(valid_array, move_made, new_board, new_player1, result)
