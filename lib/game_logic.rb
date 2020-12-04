@@ -1,6 +1,5 @@
 class CheckResult
   attr_reader :result1
-  attr_accessor :points
 
   def initialize(result)
     @result1 = result
