@@ -1,54 +1,65 @@
 ## Tic Tac Toe Game in Ruby
 
-Creating the Tic Tac Toe Game in ruby using Object Oriented Methodology
+Creating the "Tic Tac Toe" Game using OOP (Object Oriented Methodology).
+
+![screenshot](./screenshots/tictactoe.png)
+
+This Microverse project consists of recreating the famous game "Tic Tac Toe" using the language Ruby to test our knowledge and abilities to manage classes, methods, and different objects
 
 
 ## Built With
 
 - Ruby
-- VsCode
+- VsCode.
 
 
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps:
-Prerequisites
+  **Prerequisites:**
 
-    Text Editor (VSCode is suggested.)
-    Ruby
+- Text Editor (VSCode is suggested.)
+- Ruby.
 
 
 ## Setup
 
-To play the game locally,
+To play the game locally follow these simple steps:
 
-1. Install Ruby using the necessary commands depending on your Operating System
-2. Download the files on your system
-3. Navigate to project Directory
-
-To play the game follow the steps mentioned before. After you done that, run the "main" file and follow these steps:
-
-  1. First you need to introduce player one name.
-
-  2. Then you need to introduce player two name.
-
-  3. The game will display the board.
-
-  4. Player one choose a position in the board from 1 to 9 which is not occupied.
-
-  5. Player two choose a position in the board from 1 to 9 which is not occupied.
-
-  6. You will have turns, in sequence until there is a winner or the board is full which would result in a tie.
-
-  7. If you want to play again you can type bin/main again and the game will reset.
+**1.** Download or clone this repository
+**2.** Navigate to project Directory on your terminal (cd Directory)
+**3.** Allow bin/main.rb to be executable by running this command: chmod 755 bin/main.rb
+**4.** Now, just run bin/main.rb in your terminal and have fun!
 
 
-## Tic Tac Toe game rules.
+## Tic Tac Toe Game Rules
 
-1. Game ends when either 3 X's or 3 0's are made one one after the other Horizontally, vertically or diagonally
+- Game ends when either 3 X's or 3 0's are made one one after the other horizontally, vertically or diagonally
+- Game ends in a draw when all squares are filled or and no winning sequence is reached.
 
-2. Game ends in a draw when all squares are filled or and no winning sequence is reached.
 
+## Game Instructions
+
+**1. After running the code, introduce player one name and press enter**
+**2. Then you need to repeat the process with player two**
+
+  ![screenshot](./screenshots/playernames.png)
+
+**3. The game will display the board**
+
+  ![screenshot](./screenshots/Board.png)
+
+**4. Player one choose a position (which is not occupied) in the board from 1 to 9**
+
+  ![screenshot](./screenshots/validmoves.png)
+  ![screenshot](./screenshots/invalid.png)
+
+**5. Now the same with player two and repeat the sequence until there is a winner or the board is full which would result in a draw**
+
+  ![screenshot](./screenshots/winner.png)
+
+**6. Press "Y" if you want to play another round!**
+
+  ![screenshot](./screenshots/playagain.png)
 
 <!-- ## Assignment Link
 
