@@ -66,9 +66,11 @@ To play the game locally follow these simple steps:
 
 ![screenshot](./screenshots/playagain.png)
 
-<!-- ## Assignment Link
 
-[Assignment]  -->
+## Live Demo
+
+![screenshot](https://repl.it/@Andrik27001/Tic-Tac-Toe#main.rb)
+
 
 ## Authors:
 
