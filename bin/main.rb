@@ -1,227 +1,136 @@
 #!/usr/bin/env ruby
 # Game flow
+require_relative '../lib/create_game'
+require_relative '../lib/game_logic'
 
-def new_board(input = nil, player = nil)
-  array = %w[- - - - - - - - -]
-  array[input.to_i - 1] = 'X' if player == 1
-  array[input.to_i - 1] = 'O' if player == 2
-  puts "|#{array[0]}|#{array[1]}|#{array[2]}|"
-  puts "|#{array[3]}|#{array[4]}|#{array[5]}|"
-  puts "|#{array[6]}|#{array[7]}|#{array[8]}|"
+play_again = 'Y'
+
+def new_board_main(new_board)
+  puts 'The Current Board position looks like this:', ''
+  puts "|#{new_board.array[0]}|#{new_board.array[1]}|#{new_board.array[2]}|"
+  puts "|#{new_board.array[3]}|#{new_board.array[4]}|#{new_board.array[5]}|"
+  puts "|#{new_board.array[6]}|#{new_board.array[7]}|#{new_board.array[8]}|"
   puts
-  # result = check_result(array)
-  # game_over if result == true
 end
-# define game rules
 
-def game_rules
+def valid_moves(valid_array, new_board)
+  print 'Valid Moves are as follows: '
+  x = valid_array.valid_moves_logic(new_board)
+  x.each_with_index { |item, index| print "#{index + 1} " if item == 'A' }
   puts
-  puts 'Rules are Follows'
-  puts "1. Game ends when either 3 X's or 3 0's are made one one after the other Horizontally, vertically
-or diagonally"
+  puts 'Enter any of the above number to mark your position.'
+  puts 'Numbers & positions are insync as below'
+  puts '|1|2|3|'
+  puts '|4|5|6|'
+  puts '|7|8|9|'
+  puts
+end
 
-  puts '2. Game ends in a draw when all squares are filled or and no winning sequence is reached.'
-  puts '3. Player 1 is X & player 2 is 0'
-  puts
-  puts 'Lets Begin the Game'
-  puts
+def check_move(move_made, valid_array, new_board)
+  move = gets.chomp.strip
+  check = false
+  until check == true
+    check = move_made.move_new(move, valid_array)
+    next unless check == false
+
+    puts 'Invalid Move', ''
+    valid_moves(valid_array, new_board)
+    puts
+    puts 'Enter correct position', ''
+    move = gets.chomp.strip
+  end
+  puts "You entered in position #{move}"
+  move
+end
+
+def make_move(move, player, new_board)
+  new_board.input_marker(move, player)
 end
 
 # player 1 turn
 
-def player_one
+def player_one(valid_array, move_made, new_board, new_player1, result)
+  puts "Your Turn #{new_player1.name}", ''
+  new_board_main(new_board)
+  valid_moves(valid_array, new_board)
   puts
-  puts 'Your Turn player 1'
+  puts "Enter your position #{new_player1.name}", ''
+  move = check_move(move_made, valid_array, new_board)
   puts
-  puts 'The Current Board looks like this'
-  puts
-  new_board
-  puts
-  valid_moves
-  puts 'Enter your position Player 1'
-  puts
-  move = gets.chomp
-  check_move(move)
-  new_board(move, 1)
-  result = check_result
-  game_over if result == true
+  make_move(move, 'player1', new_board)
+  new_board_main(new_board)
+  final = result.check_result('player1', new_board)
+  game_over(new_player1, final) if result.result1 == true || result.result1 == 'draw'
 end
 
-def player_two
+def player_two(valid_array, move_made, new_board, new_player2, result)
+  puts "Your Turn #{new_player2.name}", ''
+  new_board_main(new_board)
+  valid_moves(valid_array, new_board)
   puts
-  puts 'Your Turn player 2'
+  puts "Enter your position #{new_player2.name}", ''
+  move = check_move(move_made, valid_array, new_board)
   puts
-  puts 'The Current Board looks like this'
-  puts
-  new_board
-  valid_moves
-  puts 'Enter your position Player 2'
-  move = gets.chomp
-  move = check_move(move)
-  new_board(move, 2)
-  result = check_result
-  game_over if result == true
+  make_move(move, 'player2', new_board)
+  new_board_main(new_board)
+  final = result.check_result('player2', new_board)
+  game_over(new_player2, final) if result.result1 == true || result.result1 == 'draw'
 end
 
-def check_move(move)
-  until move.ord > 48 && move.ord < 58
-    puts 'Invalid Move, enter correct position'
-    move = gets.chomp
+def game_over(new_player, final)
+  case final
+  when 'player1'
+    new_player1 = new_player
+    puts "#{new_player1.name} is the winner! Congratulations!!!", ''
+  when 'player2'
+    new_player2 = new_player
+    puts "#{new_player2.name} is the winner! Congratulations!!!", ''
+  when 'draw'
+    puts 'Match is drawn'
   end
-  puts "You have marked #{move}"
-  puts
-  move
+  puts 'Thank You for playing', ''
+  puts 'Would you like to play again? Press Y to continue, anything else to quit', ''
+  play_again = gets.chomp.strip
+  exit 1 unless %w[Y y].include?(play_again)
 end
 
-def check_result
-  x = rand(3)
+def start_game
   puts
-  if x.zero?
-    puts 'Winner is Player 1'
-  elsif x.odd?
-    puts 'Winner is Player 2'
-  else
-    puts 'Its a draw'
+  puts 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+  puts 'x                              x'
+  puts 'x    Lets Play Tic Tac Toe!    x'
+  puts 'x                              x'
+  puts 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+  puts
+end
+
+while %w[Y y].include?(play_again)
+  # Get player name
+  puts
+  puts 'Enter Player 1 Name:'
+  player1 = gets.chomp.strip
+  player1 = 'Player 1' if player1 == ''
+  new_player1 = Player.new(player1)
+  puts
+  puts "Player 1 is \"#{new_player1.name}\"", ''
+  puts 'Enter Player 2 Name:'
+  player2 = gets.chomp.strip
+  player2 = 'Player 2' if player2 == ''
+  player2 = "#{player2}-(player2)" if player2 == player1
+  new_player2 = Player.new(player2)
+  puts
+  puts "Player 2 is \"#{new_player2.name}\""
+
+  # Initialize array and result
+  start_game
+  new_board = NewBoard.new
+  valid_array = Valid.new
+  move_made = Move.new
+
+  result = CheckResult.new(false)
+
+  while result.result1 == false
+    player_one(valid_array, move_made, new_board, new_player1, result)
+    player_two(valid_array, move_made, new_board, new_player2, result) if result.result1 == false
   end
-  # result = true
-  puts
 end
-
-def valid_moves
-  puts 'Valid Moves are as follows:'
-  (1..9).each { |x| print "#{x} " }
-  puts
-  puts
-end
-
-def game_over
-  puts 'Thank You for playing'
-  puts 'Would you like to play again? Press Y to continue'
-  # play_again = gets.chomp
-  # exit 1 unless %w[Y y].include?(play_again)
-end
-puts
-puts 'Lets Play Tic Tac Toe!'
-puts
-# Get player names
-puts
-puts 'Enter Player 1 Name'
-puts
-player1 = gets.chomp
-player1 = 'Player 1' if player1 == ''
-puts
-puts "Player 1 is #{player1}"
-puts
-puts 'Enter Player 2 Name'
-puts
-player2 = gets.chomp
-puts
-player2 = 'Player 2' if player2 == ''
-
-puts "Player 2 is #{player2}"
-puts
-
-# Initialize array and result
-puts 'Welcome to the Game'
-# result = false
-game_rules
-new_board
-
-(1...2).each do
-  player_one
-  player_two
-end
-
-# def player_one
-#   puts 'Your Turn player 1'
-#   # puts 'The Current Board looks like this'
-#   # puts "|#{array[0]}|#{array[1]}|#{array[2]}|"
-#   # puts "|#{array[3]}|#{array[4]}|#{array[5]}|"
-#   # puts "|#{array[6]}|#{array[7]}|#{array[8]}|"
-#   puts 'Valid Moves are as follows:'
-
-#   # Share valid positions here
-
-#   # move = nil
-#   puts 'Enter your position Player 1'
-#   move = gets.chomp
-
-#   # if move is invalid, inform which moves are valid and takes input again in a loop
-#   #  puts 'Invalid Input. Please Input from number 1 to 9' if move conditions
-
-#   puts "You have marked position #{move}"
-
-#   # call function to check if a winning pattern is made or if it is a draw
-#   puts 'The Current Board looks like this'
-#   puts "|#{array[0]}|#{array[1]}|#{array[2]}|"
-#   puts "|#{array[3]}|#{array[4]}|#{array[5]}|"
-#   puts "|#{array[6]}|#{array[7]}|#{array[8]}|"
-
-#   # if a draw or victory is sealed, share that player has won and share board and return to calling function
-# end
-
-# # player 2 turn
-
-# def player_two
-#   puts 'Your turn player 2'
-#   # puts 'The Current Board looks like this'
-#   # puts "|#{array[0]}|#{array[1]}|#{array[2]}|"
-#   # puts "|#{array[3]}|#{array[4]}|#{array[5]}|"
-#   # puts "|#{array[6]}|#{array[7]}|#{array[8]}|"
-#   puts 'Valid Moves are as follows:'
-
-#   # Share valid positions
-#   # move = nil
-#   puts 'Enter your position Player 2'
-#   move = gets.chomp
-
-#   # if move is invalid, inform which moves are valid and takes input again
-#   # puts 'Invalid Input. Please Input from number 1 to 9' if move conditions
-
-#   puts "You have marked position #{move}"
-
-#   # call function to check if a winning pattern is made or if it is a draw
-
-#   puts 'The Current Board looks like this'
-#   puts "|#{array[0]}|#{array[1]}|#{array[2]}|"
-#   puts "|#{array[3]}|#{array[4]}|#{array[5]}|"
-#   puts "|#{array[6]}|#{array[7]}|#{array[8]}|"
-
-#   # if a draw or victory is sealed, share that player has won and share board and return to calling function
-# end
-
-# # to display game result
-
-# def game_result(_player_name)
-#   puts 'Winner is player_name'
-#   puts 'The Game is a Draw'
-#   puts 'Would you like to play again? Press Y to continue'
-#   # play_again = gets.chomp
-# end
-
-# # initial input
-
-# def game_input
-#   # array = [[0,1,1],[1,1,1],[1,1,1]]
-#   puts "|#{array[0]}|#{array[1]}|#{array[2]}|"
-#   puts "|#{array[3]}|#{array[4]}|#{array[5]}|"
-#   puts "|#{array[6]}|#{array[7]}|#{array[8]}|"
-# end
-
-# game_rules # call game rules
-# game_input # call game input
-
-# # keep checking for game result before executing
-
-# until result[0] == false
-#   result[0] = player_turn1 if result[0] == false
-#   result[0] = player_turn2 if result[0] == false
-# end
-
-#  [REQUIRED] game tells which player turn it is (without computing who the winner is)
-#  [REQUIRED] game asks the player to select from available moves
-#  [REQUIRED] game informs player if the selected move is invalid (without computing what an invalid move is)
-#  [REQUIRED] game displays board after the player move (without computing which spots on the board are taken)
-#  [REQUIRED] game informs player if the selected move is a winning move (without computing the winning move)
-#  [REQUIRED] game informs player if the selected move is a draw move (without computing draw)
-#  [REQUIRED] game repeats all actions for the next player's move
