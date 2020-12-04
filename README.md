@@ -1,58 +1,75 @@
 ## Tic Tac Toe Game in Ruby
 
-Creating the Tic Tac Toe Game in ruby using Object Oriented Methodology
+Creating the "Tic Tac Toe" Game using OOP (Object Oriented Methodology).
 
+![screenshot](./screenshots/tictactoe.png)
+
+This Microverse project consists of recreating the famous game "Tic Tac Toe" using the language Ruby to test our knowledge and abilities to manage classes, methods, and different objects
 
 ## Built With
 
 - Ruby
-- VsCode
-
+- VsCode.
 
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps:
-Prerequisites
+**Prerequisites:**
 
-    Text Editor (VSCode is suggested.)
-    Ruby
-
+- Text Editor (VSCode is suggested)
+- Ruby.
 
 ## Setup
 
-To play the game locally,
+To play the game locally follow these simple steps:
 
-1. Install Ruby using the necessary commands depending on your Operating System
-2. Download the files on your system
-3. Navigate to project Directory
+1. Download or clone this repository
+2. Navigate to project Directory on your terminal (cd Directory)
+3. Allow bin/main.rb to be executable by running this command: chmod 755 bin/main.rb
+4. Now, just run bin/main.rb in your terminal and have fun!
 
-To play the game follow the steps mentioned before. After you done that, run the "main" file and follow these steps:
+## What is Tic Tac Toe?
 
-  1. First you need to introduce player one name.
+1. Tic Tae is a 2 player game where the goal is to mark your signs/symbols X or 0 in consecutively.
+2. It is usually played on a 3x3 board but can be played on bigger boards. So a 3x3 board the goal is to complete 3 signs consecutively.
+3. It can either be horizontally, vertically or diagonally.
+4. Every player plays alternatively. If no consecutive pattern is made, it is a draw!
 
-  2. Then you need to introduce player two name.
+## Tic Tac Toe Game Rules
 
-  3. The game will display the board.
+- Every player makes alternate moves.
+- Valid moves are only in blank squares where no move has been already made.
+- If pattern of same symbols is formed, horizontally, vertically or diagonally the player doing so wins.
+- If no consecutive pattern is formed, it is a draw!
+- Check Game Instructions section for detailed instructions on how to play the game with images.
 
-  4. Player one choose a position in the board from 1 to 9 which is not occupied.
+## Game Instructions
 
-  5. Player two choose a position in the board from 1 to 9 which is not occupied.
+##### 1. After running the code, introduce player one name and press enter
 
-  6. You will have turns, in sequence until there is a winner or the board is full which would result in a tie.
+##### 2. Then you need to repeat the process with player two
 
-  7. If you want to play again you can type bin/main again and the game will reset.
+![screenshot](./screenshots/playernames.png)
 
+**3. The game will display the board**
 
-## Tic Tac Toe game rules.
+![screenshot](./screenshots/Board.png)
 
-1. Game ends when either 3 X's or 3 0's are made one one after the other Horizontally, vertically or diagonally
+**4. Player one choose a position (which is not occupied) in the board from 1 to 9**
 
-2. Game ends in a draw when all squares are filled or and no winning sequence is reached.
+![screenshot](./screenshots/validmoves.png)
+![screenshot](./screenshots/invalid.png)
 
+**5. Now the same with player two and repeat the sequence until there is a winner or the board is full which would result in a draw**
 
-<!-- ## Assignment Link
+![screenshot](./screenshots/winner.png)
 
-[Assignment]  -->
+**6. Press "Y" if you want to play another round!**
+
+![screenshot](./screenshots/playagain.png)
+
+## Live Demo
+
+[Assignment](https://repl.it/@Andrik27001/Tic-Tac-Toe#main.rb)
 
 ## Authors:
 
