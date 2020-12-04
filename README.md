@@ -69,7 +69,7 @@ To play the game locally follow these simple steps:
 
 ## Live Demo
 
-![screenshot](https://repl.it/@Andrik27001/Tic-Tac-Toe#main.rb)
+[Assignment](https://repl.it/@Andrik27001/Tic-Tac-Toe#main.rb)
 
 ## Authors:
 
