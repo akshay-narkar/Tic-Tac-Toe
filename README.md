@@ -22,17 +22,17 @@ This Microverse project consists of recreating the famous game "Tic Tac Toe" usi
 
 To play the game locally follow these simple steps:
 
-**1.** Download or clone this repository
-**2.** Navigate to project Directory on your terminal (cd Directory)
-**3.** Allow bin/main.rb to be executable by running this command: chmod 755 bin/main.rb
-**4.** Now, just run bin/main.rb in your terminal and have fun!
+1. Download or clone this repository
+2. Navigate to project Directory on your terminal (cd Directory)
+3. Allow bin/main.rb to be executable by running this command: chmod 755 bin/main.rb
+4. Now, just run bin/main.rb in your terminal and have fun!
 
 ## What is Tic Tac Toe?
 
-**1. Tic Tae is a 2 player game where the goal is to mark your signs/symbols X or 0 in consecutively.**
-**2. It is usually played on a 3x3 board but can be played on bigger boards. So a 3x3 board the goal is to complete 3 signs consecutively.**
-**3. It can either be horizontally, vertically or diagonally.**
-**4. Every player plays alternatively. If no consecutive pattern is made, it is a draw!**
+##### 1. Tic Tae is a 2 player game where the goal is to mark your signs/symbols X or 0 in consecutively.
+##### 2. It is usually played on a 3x3 board but can be played on bigger boards. So a 3x3 board the goal is to complete 3 signs consecutively.
+##### 3. It can either be horizontally, vertically or diagonally.
+##### 4. Every player plays alternatively. If no consecutive pattern is made, it is a draw!
 
 ## Tic Tac Toe Game Rules
 
@@ -44,8 +44,8 @@ To play the game locally follow these simple steps:
 
 ## Game Instructions
 
-**1. After running the code, introduce player one name and press enter**
-**2. Then you need to repeat the process with player two**
+##### 1. After running the code, introduce player one name and press enter
+##### 2. Then you need to repeat the process with player two
 
 ![screenshot](./screenshots/playernames.png)
 
