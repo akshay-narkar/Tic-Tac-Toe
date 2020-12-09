@@ -13,10 +13,9 @@ def new_board_main(new_board)
   puts
 end
 
-def valid_moves(valid_array, new_board)
+def valid_moves(new_board)
   print 'Valid Moves are as follows: '
-  x = valid_array.valid_moves_logic(new_board)
-  x.each_with_index { |item, index| print "#{index + 1} " if item == 'A' }
+  new_board.array.each_with_index { |item, index| print "#{index + 1} " if item == '-' }
   puts
   puts 'Enter any of the above number to mark your position.'
   puts 'Numbers & positions are insync as below'
@@ -26,15 +25,15 @@ def valid_moves(valid_array, new_board)
   puts
 end
 
-def check_move(move_made, valid_array, new_board)
+def check_move(move_made, new_board)
   move = gets.chomp.strip
   check = false
   until check == true
-    check = move_made.move_new(move, valid_array)
+    check = move_made.move_new(move, new_board)
     next unless check == false
 
     puts 'Invalid Move', ''
-    valid_moves(valid_array, new_board)
+    valid_moves(new_board)
     puts
     puts 'Enter correct position', ''
     move = gets.chomp.strip
@@ -49,13 +48,13 @@ end
 
 # player 1 turn
 
-def player_one(valid_array, move_made, new_board, new_player1, result)
+def player_one(move_made, new_board, new_player1, result)
   puts "Your Turn #{new_player1.name}", ''
   new_board_main(new_board)
-  valid_moves(valid_array, new_board)
+  valid_moves(new_board)
   puts
   puts "Enter your position #{new_player1.name}", ''
-  move = check_move(move_made, valid_array, new_board)
+  move = check_move(move_made, new_board)
   puts
   make_move(move, 'player1', new_board)
   new_board_main(new_board)
@@ -63,13 +62,13 @@ def player_one(valid_array, move_made, new_board, new_player1, result)
   game_over(new_player1, final) if result.result1 == true || result.result1 == 'draw'
 end
 
-def player_two(valid_array, move_made, new_board, new_player2, result)
+def player_two(move_made, new_board, new_player2, result)
   puts "Your Turn #{new_player2.name}", ''
   new_board_main(new_board)
-  valid_moves(valid_array, new_board)
+  valid_moves(new_board)
   puts
   puts "Enter your position #{new_player2.name}", ''
-  move = check_move(move_made, valid_array, new_board)
+  move = check_move(move_made, new_board)
   puts
   make_move(move, 'player2', new_board)
   new_board_main(new_board)
@@ -124,13 +123,12 @@ while %w[Y y].include?(play_again)
   # Initialize array and result
   start_game
   new_board = NewBoard.new
-  valid_array = Valid.new
   move_made = Move.new
 
   result = CheckResult.new(false)
 
   while result.result1 == false
-    player_one(valid_array, move_made, new_board, new_player1, result)
-    player_two(valid_array, move_made, new_board, new_player2, result) if result.result1 == false
+    player_one(move_made, new_board, new_player1, result)
+    player_two(move_made, new_board, new_player2, result) if result.result1 == false
   end
 end
