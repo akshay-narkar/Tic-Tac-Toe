@@ -18,6 +18,8 @@ Metrics/BlockLength:
   Max: 30
 Metrics/CyclomaticComplexity:
   Enabled: false
+Style/BlockComments:
+  Enabled: false
 
 Style/Documentation:
   Enabled: false
