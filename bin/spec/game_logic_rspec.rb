@@ -18,7 +18,7 @@ describe Move do
       expect(subject.move_new(10, newboard)).to be_falsy
     end
     it 'Move is illegal. Out of bounds input' do
-      expect(subject.move_new('A', newboard)).to be_falsy
+      expect(subject.move_new('Z', newboard)).to be_falsy
     end
   end
 end
