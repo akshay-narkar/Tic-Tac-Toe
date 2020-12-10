@@ -23,35 +23,17 @@ class CheckResult
   end
 
   def check_draw(new_board)
-    @result1 = 'draw' if new_board.array.none?('-')
+    return unless new_board.array.none?('-')
+
+    @result1 = 'draw'
     'draw'
   end
 end
 
-class Valid
-  attr_reader :valid_move
-
-  def initialize
-    @valid_move = []
-  end
-
-  def valid_moves_logic(new_board)
-    new_board.array.each_with_index do |x, y|
-      @valid_move[y] = if x == '-'
-                         'A'
-                       else
-                         '-'
-                       end
-    end
-
-    @valid_move
-  end
-end
-
 class Move
-  def move_new(move, valid_array)
+  def move_new(move, new_board)
     if move.to_i >= 1 && move.to_i < 10
-      valid_array.valid_move[move.to_i - 1] == 'A'
+      new_board.array[move.to_i - 1] == '-'
     else
       false
     end

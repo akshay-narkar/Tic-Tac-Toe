@@ -57,6 +57,7 @@ To play the game locally follow these simple steps:
 **4. Player one choose a position (which is not occupied) in the board from 1 to 9**
 
 ![screenshot](./screenshots/validmoves.png)
+<br>
 ![screenshot](./screenshots/invalid.png)
 
 **5. Now the same with player two and repeat the sequence until there is a winner or the board is full which would result in a draw**
@@ -69,7 +70,7 @@ To play the game locally follow these simple steps:
 
 ## Live Demo
 
-[Assignment](https://repl.it/@Andrik27001/Tic-Tac-Toe#main.rb)
+[Demo](https://repl.it/@Andrik27001/Tic-Tac-Toe#main.rb)
 
 ## Authors:
 
