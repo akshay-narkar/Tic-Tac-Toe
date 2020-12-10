@@ -23,7 +23,9 @@ class CheckResult
   end
 
   def check_draw(new_board)
-    @result1 = 'draw' if new_board.array.none?('-')
+    return unless new_board.array.none?('-')
+
+    @result1 = 'draw'
     'draw'
   end
 end
