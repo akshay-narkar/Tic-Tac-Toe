@@ -1,4 +1,4 @@
-require '../../lib/create_game'
+require_relative '../lib/create_game'
 
 describe Player do
   it 'Player is Initialized with a name' do

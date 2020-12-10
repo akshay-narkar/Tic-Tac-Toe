@@ -1,5 +1,5 @@
-require '../../lib/game_logic'
-require '../../lib/create_game'
+require_relative '../lib/game_logic'
+require_relative '../lib/create_game'
 
 newboard = NewBoard.new
 
